@@ -1,7 +1,8 @@
 import { useState, useCallback } from "react";
 import hamburgerIcon from "../../assets/images/icon-hamburger.svg";
-import navbarLogo from "../../assets/images/logo-bookmark.svg";
+import CloseIcon from "../../assets/images/icon-close.svg";
 import HamburgerMenu from "./HamburgerMenu";
+import NavbarLogo from "./NavbarLogo";
 import { AnimatePresence } from "motion/react";
 
 const Navbar = () => {
@@ -11,55 +12,37 @@ const Navbar = () => {
   const handleCloseMenu = useCallback(() => setMenuOpen(false), []);
 
   return (
-    <header className="fixed w-full left-0 top-0 z-50">
+    <header className="fixed w-full left-0 top-0 z-[60]">
       <nav
-        className="container flex items-center justify-between md:justify-start md:gap-12 py-6"
+        className="container flex items-center justify-between md:justify-start md:gap-12 p-6"
         role="navigation"
         aria-label="Main Navigation"
       >
         {/* Logo */}
         <a href="/" aria-label="Go to Homepage">
-          <img src={navbarLogo} alt="Navbar Logo" />
+          <NavbarLogo menuOpen={menuOpen} />
         </a>
 
-        {/* Hamburger Menu Button */}
+        {/* Hamburger Toggle Button (Mobile Only) */}
         <button
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
-          className="md:hidden z-50 relative"
-          onClick={() => setMenuOpen((prev) => !prev)}
+          className="md:hidden z-[60] relative"
+          onClick={(e) => {
+            e.stopPropagation(); // prevent click outside from triggering
+            setMenuOpen((prev) => !prev);
+          }}
         >
-          <img src={hamburgerIcon} alt="" aria-hidden="true" />
+          <img
+            src={menuOpen ? CloseIcon : hamburgerIcon}
+            alt=""
+            aria-hidden="true"
+          />
         </button>
-
-
-        {/* Desktop Menu
-        <ul className="hidden md:flex space-x-8">
-          <li>
-            <a href="#home" className="text-white">
-              home
-            </a>
-          </li>
-          <li>
-            <a href="#shop" className="text-white">
-              shop
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="text-white">
-              about
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="text-white">
-              contact
-            </a>
-          </li>
-        </ul> */}
       </nav>
 
-      {/* Hamburger Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && <HamburgerMenu onClose={handleCloseMenu} />}
       </AnimatePresence>
