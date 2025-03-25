@@ -15,7 +15,7 @@ const HamburgerMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       exit={{ opacity: 0, y: -50 }}
       className="fixed top-0 left-0 w-full h-full bg-very-dark-blue/90 z-50"
     >
-      <div ref={menuRef} className="flex px-6 flex-col gap-6">
+      <div ref={menuRef} className="flex px-6 flex-col gap-6 container">
         <ul className="pt-[73px] w-full text-center flex flex-col">
           {["FEATURES", "PRICING", "CONTACT"].map((label, idx) => (
             <motion.li

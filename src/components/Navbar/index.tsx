@@ -5,6 +5,12 @@ import HamburgerMenu from "./HamburgerMenu";
 import NavbarLogo from "./NavbarLogo";
 import { AnimatePresence } from "motion/react";
 
+const navbarLinks = [
+  { name: "Features", href: "#features" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "Contact", href: "#contact" },
+];
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -14,7 +20,7 @@ const Navbar = () => {
   return (
     <header className="fixed w-full left-0 top-0 z-[60]">
       <nav
-        className="container flex items-center justify-between md:justify-start md:gap-12 p-6"
+        className="container flex items-center justify-between md:gap-12 p-6"
         role="navigation"
         aria-label="Main Navigation"
       >
@@ -22,6 +28,27 @@ const Navbar = () => {
         <a href="/" aria-label="Go to Homepage">
           <NavbarLogo menuOpen={menuOpen} />
         </a>
+
+        <div className="flex items-center gap-8">
+          {/* Navbar Links  */}
+          <ul className="hidden md:flex gap-8 items-center">
+            {navbarLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className="text-sm transition-colors tracking-widest text-dark-grayish-blue hover:text-soft-red"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Login Button  */}
+          <button className="hidden md:block px-8 py-2.5   bg-soft-red tracking-wide text-white rounded-md font-medium text-sm">
+            LOGIN
+          </button>
+        </div>
 
         {/* Hamburger Toggle Button (Mobile Only) */}
         <button
