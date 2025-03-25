@@ -2,12 +2,12 @@
 
 @theme {
   /* Font Tokens */
-  --font-league-spartan: "League Spartan", sans-serif;
+  --font-league-spartan: "Rubik", sans-serif;
   /* Color Tokens */
-  --color-dark-gray: hsl(0, 0%, 63%);
-  --color-black: hsl(0, 0%, 0%);
-  --color-white: hsl(0, 0%, 100%);
-  --color-very-dark-gray: hsl(0, 0%, 27%);
+  --color-soft-blue: hsl(231, 69%, 60%);
+  --color-soft-red: hsl(0, 94%, 66%);
+  --color-grayish-blue: hsl(229, 8%, 60%);
+  --color-very-dark-blue: hsl(229, 31%, 21%);
 }
 
 body {

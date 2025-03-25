@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import hamburgerIcon from "../../assets/images/icon-hamburger.svg";
-import navbarLogo from "../../assets/images/logo.svg";
+import navbarLogo from "../../assets/images/logo-bookmark.svg";
 import HamburgerMenu from "./HamburgerMenu";
 import { AnimatePresence } from "motion/react";
 
@@ -17,6 +17,11 @@ const Navbar = () => {
         role="navigation"
         aria-label="Main Navigation"
       >
+        {/* Logo */}
+        <a href="/" aria-label="Go to Homepage">
+          <img src={navbarLogo} alt="Navbar Logo" />
+        </a>
+
         {/* Hamburger Menu Button */}
         <button
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -28,12 +33,8 @@ const Navbar = () => {
           <img src={hamburgerIcon} alt="" aria-hidden="true" />
         </button>
 
-        {/* Logo */}
-        <a href="/" className="mx-auto md:m-0" aria-label="Go to Homepage">
-          <img src={navbarLogo} alt="Navbar Logo" />
-        </a>
 
-        {/* Desktop Menu */}
+        {/* Desktop Menu
         <ul className="hidden md:flex space-x-8">
           <li>
             <a href="#home" className="text-white">
@@ -55,7 +56,7 @@ const Navbar = () => {
               contact
             </a>
           </li>
-        </ul>
+        </ul> */}
       </nav>
 
       {/* Hamburger Menu */}

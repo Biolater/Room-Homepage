@@ -33,13 +33,16 @@ const HamburgerMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
-      className="fixed top-0 left-0 w-full h-full bg-black/20 text-black z-50"
+      className="fixed top-0 left-0 w-full h-full bg-very-dark-blue/90 z-50"
     >
       <div
         ref={menuRef}
-        className="bg-white flex items-center justify-between px-4 py-6"
+        className="flex items-center justify-between px-4 py-6"
       >
-        <button onClick={onClose} aria-label="Close menu">
+        <header>
+          
+        </header>
+        {/* <button onClick={onClose} aria-label="Close menu">
           <img src={closeIcon} alt="" aria-hidden="true" />
         </button>
 
@@ -68,7 +71,7 @@ const HamburgerMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               Contact
             </a>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </motion.div>,
     document.getElementById("root") as HTMLElement
