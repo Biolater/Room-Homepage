@@ -4,6 +4,7 @@ import CloseIcon from "../../assets/images/icon-close.svg";
 import HamburgerMenu from "./HamburgerMenu";
 import NavbarLogo from "./NavbarLogo";
 import { AnimatePresence } from "motion/react";
+import Button from "../Button";
 
 const navbarLinks = [
   { name: "Features", href: "#features" },
@@ -36,7 +37,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-sm transition-colors tracking-widest text-dark-grayish-blue hover:text-soft-red"
+                  className="text-sm transition-colors tracking-widest text-dark-grayish-blue hover:text-grayish-blue/50"
                 >
                   {link.name}
                 </a>
@@ -45,9 +46,12 @@ const Navbar = () => {
           </ul>
 
           {/* Login Button  */}
-          <button className="hidden md:block px-8 py-2.5   bg-soft-red tracking-wide text-white rounded-md font-medium text-sm">
+          <Button
+            className="hidden md:block px-8 tracking-wide text-sm py-2.5"
+            variant="danger"
+          >
             LOGIN
-          </button>
+          </Button>
         </div>
 
         {/* Hamburger Toggle Button (Mobile Only) */}
@@ -65,6 +69,7 @@ const Navbar = () => {
             src={menuOpen ? CloseIcon : hamburgerIcon}
             alt=""
             aria-hidden="true"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           />
         </button>
       </nav>
