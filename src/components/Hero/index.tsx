@@ -1,18 +1,31 @@
-import hero from "../../assets/images/desktop-image-hero-1.jpg";
+import hero from "../../assets/images/illustration-hero.svg";
+import Button from "../Button";
 
 const Hero = () => {
   return (
-    <section className="hero flex flex-col h-screen">
-      <div
-        style={{ backgroundImage: `url(${hero})` }}
-        className="hero bg-cover bg-no-repeat bg-center basis-1/2 flex-1 flex flex-col justify-center items-center text-white"
-      ></div>
-      <div className="basis-1/2 flex-1 flex flex-col justify-center items-center">
-        <h2>Hero</h2>
-        <p>Welcome to our website!</p>
-        <button className="mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded">
-          Learn More
-        </button>
+    <section className="hero mt-10 overflow-hidden">
+      <div className="container flex flex-col-reverse md:flex-row md:items-center gap-12">
+        <div className="md:w-1/2 text-center flex flex-col gap-6">
+          <h1 className="text-3xl font-semibold text-very-dark-blue">
+            A Simple Bookmark Manager
+          </h1>
+          <p className="text-lg text-grayish-blue">
+            A clean and simple interface to organize your favourite websites.
+            Open a new browser tab and see your sites load instantly. Try it for
+            free.
+          </p>
+          <div className="flex items-center justify-center gap-4">
+            <Button className="py-3">Get it on Chrome</Button>
+            <Button variant="secondary" className="py-3 shadow-md">
+              Get it on Firefox
+            </Button>
+          </div>
+        </div>
+        <div className="relative md:w-1/2">
+          {/* Hero Image Background Effect  */}
+          <div className="-z-10 w-full h-[70%] bottom-0 -right-[25%] bg-soft-blue rounded-full absolute"></div>
+          <img src={hero} alt="Hero Illustration" />
+        </div>
       </div>
     </section>
   );
