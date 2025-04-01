@@ -3,8 +3,8 @@ import Button from "../Button";
 
 const Hero = () => {
   return (
-    <section className="hero mt-10 overflow-hidden">
-      <div className="container flex flex-col-reverse md:flex-row md:items-center gap-12">
+    <section className="hero overflow-hidden">
+      <div className="container py-10 flex flex-col-reverse md:flex-row md:items-center gap-12">
         <div className="md:w-1/2 text-center md:text-start flex flex-col gap-6">
           <h1 className="text-3xl font-semibold text-very-dark-blue">
             A Simple Bookmark Manager
