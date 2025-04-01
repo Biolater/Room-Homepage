@@ -44,7 +44,7 @@ const HamburgerMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
-      className="fixed flex flex-col justify-between top-0 left-0 w-full h-full bg-very-dark-blue/90 z-50"
+      className="fixed flex flex-col justify-between top-0 left-0 w-full h-full overflow-y-auto bg-very-dark-blue/90 z-50"
     >
       <div
         ref={menuRef}
@@ -73,10 +73,7 @@ const HamburgerMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           {...fadeInUp}
           transition={{ delay: 0.4 }}
           type="button"
-          // --- MODIFICATION HERE ---
-          // Added active:bg-white and active:text-black
           className="p-3 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 hover:bg-white hover:text-black active:bg-white active:text-black active:ring-2 active:ring-white/50 rounded-md tracking-widest text-lg text-white border-2 border-white font-semibold"
-          // --- END MODIFICATION ---
         >
           LOGIN
         </motion.button>

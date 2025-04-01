@@ -19,3 +19,9 @@
 ## Please do not remove this line - thanks! 🙂 ##
 ###############################################
 node_modules
+
+# Avoid accidental .env upload
+###############################################
+## Please do not remove this line - thanks! 🙂 ##
+###############################################
+.env

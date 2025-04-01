@@ -16,7 +16,7 @@ body {
 }
 
 @utility container {
-  @apply px-4 mx-auto;
+  @apply px-6 mx-auto sm:px-12 md:px-16 lg:px-20;
 }
 
 @layer base {

@@ -47,7 +47,7 @@ const Navbar = () => {
     // Apply the dynamically calculated classes to the header
     <header className={headerClasses}>
       <nav
-        className="container mx-auto flex items-center justify-between md:gap-12 p-6" // Added mx-auto to container
+        className="container flex items-center justify-between md:gap-12 py-6" // Added mx-auto to container
         role="navigation"
         aria-label="Main Navigation"
       >
@@ -66,12 +66,7 @@ const Navbar = () => {
                   href={link.href}
                   // Adjust text color based on scroll? Example below:
                   className={classNames(
-                    "text-sm transition-colors duration-300 tracking-widest hover:text-soft-red", // Your hover effect
-                    {
-                      "text-very-dark-blue": scrollY > 70, // Text color when scrolled
-                      "text-white": scrollY <= 70, // Text color when at top (adjust if needed)
-                      // Use a contrasting color if your top background isn't dark
-                    }
+                    "text-sm transition-colors duration-300 tracking-widest hover:text-soft-red" // Your hover effect
                   )}
                 >
                   {link.name.toUpperCase()}{" "}
