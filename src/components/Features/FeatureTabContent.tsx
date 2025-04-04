@@ -36,31 +36,29 @@ const FeatureTabContent = memo(({ activeContent }: FeatureTabContentProps) => {
 
   return (
     <div
-      className="flex flex-col gap-20"
+      className="flex flex-col gap-20 md:flex-row md:items-center"
       role="tabpanel"
       aria-label={activeContent.tabTitle}
     >
       <AnimatePresence mode="wait">
         <motion.div
           key={activeContent.tabTitle}
-          className="relative"
+          className="relative w-full md:w-1/2"
           variants={imageVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
           <div
-            className="-z-10 w-[calc(100%+10rem)] h-[80%] -bottom-10 -left-[60%] bg-soft-blue rounded-full absolute"
+            className="-z-10 w-[calc(100%+10rem)] h-[80%] md:-bottom-18 -bottom-10 -left-[60%] bg-soft-blue rounded-full absolute"
             aria-hidden="true"
           />
 
           <img
             src={activeContent.image}
             alt={activeContent.tabTitle}
-            className="w-full h-full object-cover rounded-lg shadow-lg"
+            className="size-full min-h-[240px] object-cover rounded-lg shadow-lg"
             loading="lazy"
-            width={800}
-            height={600}
           />
         </motion.div>
       </AnimatePresence>
@@ -68,16 +66,16 @@ const FeatureTabContent = memo(({ activeContent }: FeatureTabContentProps) => {
       <AnimatePresence mode="wait">
         <motion.div
           key={`content-${activeContent.tabTitle}`}
-          className="flex flex-col gap-4 text-center max-w-2xl mx-auto"
+          className="flex flex-col md:w-1/2 gap-4 text-center md:text-start"
           variants={contentVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
-          <h3 className="text-2xl md:text-3xl font-semibold text-very-dark-blue">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-very-dark-blue">
             {activeContent.tabTitle}
           </h3>
-          <p className="text-grayish-blue text-balance text-lg">
+          <p className="text-grayish-blue text-balance text-lg md:text-xl">
             {activeContent.tabDescription}
           </p>
         </motion.div>

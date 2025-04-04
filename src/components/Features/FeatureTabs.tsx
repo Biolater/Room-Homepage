@@ -14,13 +14,14 @@ const FeatureTabs = ({ activeTab, setActiveTab }: FeatureTabsProps) => {
         <button
           key={feature.id}
           className={classNames(
-            "flex px-4 overflow-hidden last:border-b border-t md:border-b-1 md:border-t-0 border-grayish-blue flex-col gap-4 items-center"
+            "flex px-4 overflow-hidden last:border-b border-t md:border-b-1 md:border-t-0 border-grayish-blue flex-col gap-4 items-center md:grow md:px-0"
           )}
           onClick={() => setActiveTab(feature.id)}
         >
           <h3
             className={classNames("py-4 relative", {
-              "font-medium text-very-dark-blue": activeTab === feature.id,
+              "font-medium md:w-full text-very-dark-blue":
+                activeTab === feature.id,
               "text-very-dark-blue/70": activeTab !== feature.id,
             })}
           >
@@ -28,7 +29,7 @@ const FeatureTabs = ({ activeTab, setActiveTab }: FeatureTabsProps) => {
             <AnimatePresence>
               {activeTab === feature.id && (
                 <motion.div
-                  className="absolute overflow-hidden bottom-0 w-[90%] left-1/2 -translate-x-1/2 h-1 bg-soft-red"
+                  className="absolute overflow-hidden bottom-0 w-[90%] md:w-full left-1/2 -translate-x-1/2 h-1 bg-soft-red"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}

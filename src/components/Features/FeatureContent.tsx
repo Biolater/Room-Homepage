@@ -12,7 +12,7 @@ const FeatureContent = () => {
   };
 
   return (
-    <div className="container max-w-3xl flex flex-col gap-16">
+    <div className="container flex flex-col gap-16">
       <FeatureTabs activeTab={activeTab} setActiveTab={handleSetActiveTab} />
       <FeatureTabContent activeContent={activeContent} />
     </div>
