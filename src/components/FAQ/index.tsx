@@ -1,3 +1,4 @@
+import { Accordion } from "../Accordion";
 import Button from "../Button";
 
 const FAQ = () => {
@@ -13,6 +14,25 @@ const FAQ = () => {
             like answered please feel free to email us.
           </p>
         </div>
+        {/* Accordion usage remains the same; prop errors will be fixed in Accordion implementation */}
+        <Accordion>
+          <Accordion.Item id="item-1">
+            <Accordion.Header>
+              What is your cancellation policy?
+            </Accordion.Header>
+            <Accordion.Panel>
+              Yes, you can cancel your subscription at any time.
+            </Accordion.Panel>
+          </Accordion.Item>
+          <Accordion.Item id="item-2">
+            <Accordion.Header>
+              Do you offer technical support?
+            </Accordion.Header>
+            <Accordion.Panel>
+              Absolutely! You can reach out to our support team 24/7 via email.
+            </Accordion.Panel>
+          </Accordion.Item>
+        </Accordion>
         <Button>More Info</Button>
       </div>
     </section>
