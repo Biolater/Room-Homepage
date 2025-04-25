@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import React, {
   createContext,
   useContext,
@@ -29,7 +30,7 @@ const Accordion: FC<{ children: ReactNode }> & {
     setOpenItemId(openItemId === id ? null : id);
   return (
     <AccordionContext.Provider value={{ openItemId, onToggle: handleToggle }}>
-      <div>{children}</div>
+      <div className="flex flex-col gap-5">{children}</div>
     </AccordionContext.Provider>
   );
 };
@@ -42,14 +43,20 @@ const Item: FC<{ id: string; children: ReactNode }> = ({ id, children }) => {
   const isOpen = openItemId === id;
   // Inject isOpen/onClick into children
   return (
-    <div id={id} className="border-b border-gray-100 last:border-b-0">
+    <div
+      id={id}
+      className="border-b text-start border-gray-100 last:border-b-0"
+    >
       {React.Children.map(children, (child) => {
         if (!isValidElement(child)) return child;
         // Type guard for AccordionHeader
         if ((child.type as any).displayName === "AccordionHeader") {
           return cloneElement(
-            child as React.ReactElement<{ onClick?: () => void }>,
-            { onClick: () => onToggle(id) }
+            child as React.ReactElement<{
+              onClick?: () => void;
+              isOpen?: boolean;
+            }>,
+            { onClick: () => onToggle(id), isOpen }
           );
         }
         // Type guard for AccordionPanel
@@ -67,22 +74,31 @@ const Item: FC<{ id: string; children: ReactNode }> = ({ id, children }) => {
 Item.displayName = "AccordionItem";
 
 // Accordion.Header
-const Header: FC<{ children: ReactNode; onClick?: MouseEventHandler }> = ({
-  onClick,
-  children,
-}) => (
-  <header onClick={onClick} className="cursor-pointer font-semibold">
-    {children}
+const Header: FC<{
+  children: ReactNode;
+  onClick?: MouseEventHandler;
+  isOpen?: boolean;
+}> = ({ onClick, children, isOpen }) => (
+  <header
+    onClick={onClick}
+    className="cursor-pointer text-very-dark-blue flex items-center justify-between pb-2"
+  >
+    <div>{children}</div>
+    <ChevronDown
+      className={`size-5 transition-all ${
+        isOpen ? "rotate-180 text-soft-red" : "text-soft-blue"
+      }`}
+    />
   </header>
 );
 Header.displayName = "AccordionHeader";
 
+import { PanelMotion } from "./PanelMotion";
+
 // Accordion.Panel
-const Panel: FC<{ children: ReactNode; isOpen?: boolean }> = ({
-  isOpen,
-  children,
-}) =>
-  isOpen ? <div className="transition-all max-h-screen">{children}</div> : null;
+const Panel: FC<{ children: ReactNode; isOpen?: boolean }> = ({ isOpen, children }) => (
+  <PanelMotion isOpen={isOpen}>{children}</PanelMotion>
+);
 Panel.displayName = "AccordionPanel";
 
 Accordion.Item = Item;
