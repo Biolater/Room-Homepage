@@ -25,9 +25,7 @@ const FAQ = () => {
             </Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item id="item-2">
-            <Accordion.Header>
-              Do you offer technical support?
-            </Accordion.Header>
+            <Accordion.Header>Do you offer technical support?</Accordion.Header>
             <Accordion.Panel>
               Absolutely! You can reach out to our support team 24/7 via email.
             </Accordion.Panel>
