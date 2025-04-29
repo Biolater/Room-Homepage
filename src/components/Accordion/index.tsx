@@ -81,9 +81,9 @@ const Header: FC<{
 }> = ({ onClick, children, isOpen }) => (
   <header
     onClick={onClick}
-    className="cursor-pointer text-very-dark-blue flex items-center justify-between pb-2"
+    className="cursor-pointer hover:[&>p]:text-soft-red text-very-dark-blue flex items-center justify-between pb-2"
   >
-    <div>{children}</div>
+    <p className="transition-colors">{children}</p>
     <ChevronDown
       className={`size-5 transition-all ${
         isOpen ? "rotate-180 text-soft-red" : "text-soft-blue"
@@ -96,9 +96,10 @@ Header.displayName = "AccordionHeader";
 import { PanelMotion } from "./PanelMotion";
 
 // Accordion.Panel
-const Panel: FC<{ children: ReactNode; isOpen?: boolean }> = ({ isOpen, children }) => (
-  <PanelMotion isOpen={isOpen}>{children}</PanelMotion>
-);
+const Panel: FC<{ children: ReactNode; isOpen?: boolean }> = ({
+  isOpen,
+  children,
+}) => <PanelMotion isOpen={isOpen}>{children}</PanelMotion>;
 Panel.displayName = "AccordionPanel";
 
 Accordion.Item = Item;
