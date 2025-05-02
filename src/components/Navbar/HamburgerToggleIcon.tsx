@@ -1,8 +1,9 @@
 interface NavbarLogoProps {
   onClick?: () => void;
+  menuOpen?: boolean;
 }
 
-const NavbarLogo: React.FC<NavbarLogoProps> = ({ onClick }) => {
+const NavbarLogo: React.FC<NavbarLogoProps> = ({ onClick, menuOpen = false }) => {
   return (
     <svg width="148" height="25" xmlns="http://www.w3.org/2000/svg" onClick={onClick}>
       <g fill="none" fillRule="evenodd">

@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import hamburgerIcon from "../../assets/images/icon-hamburger.svg"; // Make sure this path is correct
 import CloseIcon from "../../assets/images/icon-close.svg";
 import HamburgerMenu from "./HamburgerMenu"; // Make sure this path is correct
